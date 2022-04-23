@@ -4,6 +4,7 @@
 local var = vim.g
 
 ------ Utils
+var.hidden_all = 0
 var.mapleader = ' '
 
 ------ Prettier

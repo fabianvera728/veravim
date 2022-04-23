@@ -30,7 +30,7 @@ set.statusline:append('%*')
 set.list = true
 set.wrap = false
 set.cursorline = true
--- set.showmode = false
+set.laststatus = 0
 -- set.foldmethod = 'expr'
 -- set.foldexpr = 'nvim_treesitter#foldexpr()'
 -- set.background = 'light'

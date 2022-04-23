@@ -51,7 +51,7 @@ use 'tpope/vim-fugitive'
 use 'lewis6991/gitsigns.nvim'
 
 -- -- Comments
-use 'tpope/vim-commentary'
+-- use 'tpope/vim-commentary'
 
 -- -- File finder
 use 'nvim-telescope/telescope.nvim'
@@ -63,6 +63,14 @@ use 'kyazdani42/nvim-web-devicons'
 use 'kyazdani42/nvim-tree.lua'
 
 -- -- LSP - Lua
+-- use {
+--   "neovim/nvim-lspconfig",
+--   event = "BufReadPre",
+--   requires = {
+--     "williamboman/nvim-lsp-installer",
+--     "ray-x/lsp_signature.nvim",
+--   },
+-- }
 use 'neovim/nvim-lspconfig'
 use 'nvim-lua/plenary.nvim'
 use 'nvim-lua/popup.nvim'
@@ -71,17 +79,24 @@ use 'hrsh7th/cmp-nvim-lsp'
 use 'hrsh7th/cmp-buffer'
 use 'hrsh7th/cmp-path'
 use 'hrsh7th/cmp-cmdline'
-use 'hrsh7th/nvim-cmp'
+use { 'hrsh7th/nvim-cmp', disable = false }
 use 'nvim-lualine/lualine.nvim'
 use 'folke/lsp-colors.nvim'
 use 'L3MON4D3/LuaSnip'
-use 'onsails/lspkind-nvim'
+-- use 'onsails/lspkind-nvim'
 use 'ray-x/lsp_signature.nvim'
 
 use 'mg979/vim-visual-multi'
 
-use 'MunifTanjim/nui.nvim'
-
+-- --  Acelerar carga de modulos
+-- use 'lewis6991/impatient.nvim'
+use 'preservim/tagbar'
+use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+}
 -- -- Treesitter
 use { 'nvim-treesitter/nvim-treesitter', run = ":TSUpdate" }
 
@@ -97,7 +112,6 @@ use {
 use 'joshdick/onedark.vim'
 use 'glepnir/dashboard-nvim'
 use 'rose-pine/neovim'
--- agregar el tema de gruvbox
 use 'lifepillar/vim-gruvbox8'
 
 -- -- Autocomplete
@@ -109,7 +123,7 @@ use 'terryma/vim-multiple-cursors'
 use 'akinsho/toggleterm.nvim'
 
 -- Format code
-use {'prettier/vim-prettier', run='yarn install'}
+-- use {'prettier/vim-prettier', run='yarn install'}
 -- use {'ray-x/guihua.lua', run ='cd lua/fzy && make'}
 -- use {'ray-x/navigator.lua'}
 -- Debugger

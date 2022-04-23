@@ -11,6 +11,7 @@ require('telescope').setup{
             "fontawesome",
             "odoo-14.0+e.20211014/venv1/*",
             "venv1",
+            -- "i18n",
             "__pycache__",
         }
     },
