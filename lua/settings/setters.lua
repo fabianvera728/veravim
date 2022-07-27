@@ -18,22 +18,22 @@ set.smartindent = true
 set.backup = false
 set.swapfile = false
 set.wildmenu = true
+set.termguicolors = true
 set.visualbell = true
 set.compatible = false
 set.writebackup = false
-set.wildignore = {'*/cache/*', '*/tmp/*', '*/node_modules/*'}
+set.wildignore = { '*/cache/*', '*/tmp/*', '*/node_modules/*' }
 set.completeopt = "menu,menuone,noselect"
-set.clipboard='unnamedplus'
+set.clipboard = 'unnamedplus'
 set.path = set.path + '**'
 set.statusline:append('%#warningmsg#')
 set.statusline:append('%*')
 set.list = true
 set.wrap = false
 set.cursorline = true
-set.laststatus = 0
+set.guifont = "JetBrains Mono:h10"
+-- set.laststatus = 0
 -- set.foldmethod = 'expr'
 -- set.foldexpr = 'nvim_treesitter#foldexpr()'
--- set.background = 'light'
+set.background = 'light'
 -- set.background = 'dark'
-
-
