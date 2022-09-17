@@ -1,56 +1,81 @@
 -- KEYMAPPINGS
 
-local map = vim.api
+local map = vim.api.nvim_set_keymap
 
 
 ---- Apply and reload changes in the current buffer configuration
-map.nvim_set_keymap("n", "<A-C-r>", ":source %<cr>", { noremap = true, silent = true })
-map.nvim_set_keymap("n", "<A-C-r>", ":source % <cr>", { noremap = true, silent = true })
+map("n", "<A-C-r>", ":source %<cr>", { noremap = true, silent = true })
 
+--- Github configs
+map('n', '<A-g>', ':LazyGit<cr>', { noremap = true })
 
----- Telescope and files
--- map.nvim_set_keymap('n', '<leader>f', ':Telescope find_files prompt_prefix=🔍<cr>', {noremap=true})
--- map.nvim_set_keymap('n', '<leader>b', ':Telescope buffers prompt_prefix=🔍<cr>', {noremap=true})
-map.nvim_set_keymap('n', '<A-f>', ':Telescope find_files prompt_prefix=📁 <cr>', { noremap = true })
-map.nvim_set_keymap('n', '<A-Tab>', ':Telescope buffers prompt_prefix=🪟 <cr>', { noremap = true })
-map.nvim_set_keymap('n', '<A-S-f>', ':Telescope live_grep prompt_prefix=🧐 <cr>', { noremap = true })
-map.nvim_set_keymap('n', '<A-s>', ':Telescope current_buffer_fuzzy_find prompt_prefix=🧐 <cr>', { noremap = true })
-map.nvim_set_keymap('n', '<A-a>', ':Telescope lsp_code_actions prompt_prefix=🧐 <cr>', { noremap = true })
-map.nvim_set_keymap('n', '<A-r>', ':Telescope lsp_references prompt_prefix=🧐 <cr>', { noremap = true })
-map.nvim_set_keymap('n', '<A-d>', ':Telescope lsp_definitions prompt_prefix=🧐 <cr>', { noremap = true })
-map.nvim_set_keymap('n', '<A-g>', ':lua vim.lsp.buf.formatting()<cr>', { noremap = true })
-map.nvim_set_keymap('n', '<A-t>', ':TagbarToggle<cr>', { noremap = true })
-map.nvim_set_keymap('n', '<A-w>', ':w<cr>', { noremap = true })
-map.nvim_set_keymap('n', '<A-e>', ':NvimTreeToggle<cr>', { noremap = true })
-map.nvim_set_keymap('n', '<A-x>', ':LspInstall<cr>', { noremap = true })
-map.nvim_set_keymap('n', '<A-q>', ':bdelete<cr>', { noremap = true })
+--- formatting files
+map('n', '<A-i>', ':lua vim.lsp.buf.formatting()<cr>', { noremap = true })
 
----- File explore
--- map.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<cr>', {noremap=true})
+--- Refactoring
+map(
+    'v',
+    '<leader>rs',
+    ':lua require("refactoring").select_refactor()<cr>',
+    { noremap = true, silent = true }
+)
+
+map('n', '<A-w>', ':w<cr>', { noremap = true })
 
 ---- LSP - Install
+map('n', '<A-x>', ':LspInstall<cr>', { noremap = true })
 
----- buffers
-map.nvim_set_keymap('n', '<leader>j', ':bprevious<cr>', { noremap = true })
-map.nvim_set_keymap('n', '<leader>k', ':bnext<cr>', { noremap = true })
+---- Management of multi buffers
+map('n', '<leader>j', ':bprevious<cr>', { noremap = true })
+map('n', '<leader>k', ':bnext<cr>', { noremap = true })
+map('n', '<A-q>', ':bdelete<cr>', { noremap = true })
 
----- Shortcuts
-map.nvim_set_keymap('n', '<leader>i', ':m .-2<cr>==', { noremap = true })
-map.nvim_set_keymap('n', '<leader>u', ':m .+1<cr>==', { noremap = true })
-map.nvim_set_keymap('v', '<leader>i', ':m .-2<cr>gv=gv', { noremap = true })
-map.nvim_set_keymap('v', '<leader>u', ':m .+1<cr>gv=gv', { noremap = true })
-map.nvim_set_keymap('n', '<leader><Tab>', ':', { noremap = true })
+---- Move code
+-- map('n', '<leader>i', ':m .-2<cr>==', { noremap = true, silent = true })
+-- map('n', '<leader>u', ':m .+1<cr>==', { noremap = true, silent = true })
+-- map('v', '<leader>i', ':m .-2<cr>gv=gv', { noremap = true, silent = true })
+-- map('v', '<leader>u', ':m .+1<cr>gv=gv', { noremap = true, silent = true })
+-- map('v', '<leader>u', ':m .+3<cr>gv=gv', { noremap = true })
+map('n', '<leader>i', ":MoveLine(-1)<CR>", { noremap = true, silent = true })
+map('n', '<leader>u', ":MoveLine(1)<CR>", { noremap = true, silent = true })
+-- map('v', '<leader>i', ":MoveBlock(-1)<cr>", { noremap = true, silent = true })
+-- map('v', '<leader>u', ":MoveBlock(1)<cr>", { noremap = true, silent = true })
+-- map('n', '<leader>key', ":movehchar(-1)<cr>", { noremap = true, silent = true })
+-- map('n', '<leader>key', ":movehchar(1)<cr>", { noremap = true, silent = true })
+-- map('v', '<leader>key', ":MoveHBlock(1)<CR>", { noremap = true, silent = true })
+-- map('v', '<leader>key', ":MoveHBlock(-1)<CR>", { noremap = true, silent = true })
+map('n', '<leader><Tab>', ':', { noremap = true })
+
+
+--- Resize panels
+-- map('n', '<C-h>', '<C-w>3<', { noremap = true, silent = true })
+-- map('n', '<C-l>', '<C-w>3>', { noremap = true, silent = true })
 
 --- Move in panels
--- map.nvim_set_keymap('n', '<leader>z<cr>', '<C-w><C-h>', {noremap=true})
--- map.nvim_set_keymap('n', '<leader>v', '<C-w><C-l>', {noremap=true})
--- map.nvim_set_keymap('n', '<leader>x', '<C-w><C-j><cr>', {noremap=true})
--- map.nvim_set_keymap('n', '<leader>cv', '<C-w><C-k><cr>', {noremap=true})
-map.nvim_set_keymap('n', '<M-h>', '<C-w><C-h>', { noremap = true })
-map.nvim_set_keymap('n', '<M-l>', '<C-w><C-l>', { noremap = true })
-map.nvim_set_keymap('n', '<M-j>', '<C-w><C-j>', { noremap = true })
-map.nvim_set_keymap('n', '<M-k>', '<C-w><C-k>', { noremap = true })
+-- map('n', '<M-h>', '<C-w><C-h>', { noremap = true })
+-- map('n', '<M-l>', '<C-w><C-l>', { noremap = true })
+-- map('n', '<M-j>', '<C-w><C-j>', { noremap = true })
+-- map('n', '<M-k>', '<C-w><C-k>', { noremap = true })
 
--- inoremap
-map.nvim_set_keymap('i', 'jj', '<esc>', { noremap = true })
+--- Scroll in pane
+map('n', '<C-j>', 'jzz', { noremap = true, silent = true })
+map('n', '<C-k>', 'kzz', { noremap = true, silent = true })
+
+
+--- Tabbing in vim 
+map('v', '<', '<gv', { noremap = true, silent = true })
+map('v', '>', '>gv', { noremap = true, silent = true })
+
+
+-- Maps for return nnoremap mode
+map('i', 'jj', '<esc>', { noremap = true, silent = true })
+map('v', 'q', '<esc>', { noremap = true, silent = true })
+
+
+-- Disable arrow keymaps
+map('', '<up>', '<nop>', { noremap = true })
+map('', '<down>', '<nop>', { noremap = true })
+map('', '<left>', '<nop>', { noremap = true })
+map('', '<right>', '<nop>', { noremap = true })
+
 

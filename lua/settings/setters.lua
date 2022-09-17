@@ -3,7 +3,9 @@
 
 local set = vim.opt
 
-set.mouse = 'a'
+set.mouse = 'c'
+set.linebreak = true
+set.colorcolumn = '120'
 set.number = true
 set.relativenumber = true
 set.expandtab = true
@@ -35,5 +37,5 @@ set.guifont = "JetBrains Mono:h10"
 -- set.laststatus = 0
 -- set.foldmethod = 'expr'
 -- set.foldexpr = 'nvim_treesitter#foldexpr()'
-set.background = 'light'
--- set.background = 'dark'
+-- set.background = 'light'
+set.background = 'dark'

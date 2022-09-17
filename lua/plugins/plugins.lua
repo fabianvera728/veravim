@@ -47,14 +47,14 @@ return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
 
     -- -- Vim git
-    use 'tpope/vim-fugitive'
-    use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
     use 'lewis6991/gitsigns.nvim'
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
     use { 'kdheepak/lazygit.nvim' }
 
-    -- -- Comments
+    -- -- Comments and movements
     use 'tpope/vim-commentary'
+    use 'fedepujol/move.nvim'
+    use 'anuvyklack/hydra.nvim'
 
     -- -- File finder
     use 'nvim-telescope/telescope.nvim'
@@ -87,28 +87,37 @@ return require('packer').startup(function()
     use 'folke/lsp-colors.nvim'
     use 'L3MON4D3/LuaSnip'
     use 'ray-x/lsp_signature.nvim'
+    use {
+        "glepnir/lspsaga.nvim",
+        branch = "main",
+    }
+    -- -- Package manager
+    -- mason.nvim
 
     -- Multiples cursores
     use 'mg979/vim-visual-multi'
 
     -- --  Acelerar carga de modulos
-    -- use 'lewis6991/impatient.nvim'
+    use 'lewis6991/impatient.nvim'
     use 'nathom/filetype.nvim'
 
     use 'preservim/tagbar'
 
     -- -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ":TSUpdate" }
-    -- use 'romgrk/nvim-treesitter-context'
-    -- use {
-    --     "AckslD/nvim-neoclip.lua",
-    --     requires = {
-    --         { 'nvim-telescope/telescope.nvim' },
-    --         -- {'ibhagwan/fzf-lua'},
-    --     }
-    -- }
+    use 'romgrk/nvim-treesitter-context'
 
-    -- Theme
+
+    -- -- Refactoring
+    use {
+        "ThePrimeagen/refactoring.nvim",
+        requires = {
+            { "nvim-lua/plenary.nvim" },
+            { "nvim-treesitter/nvim-treesitter" }
+        }
+    }
+
+
 
     -- -- Autocomplete
     use 'jiangmiao/auto-pairs'
