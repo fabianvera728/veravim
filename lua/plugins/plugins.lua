@@ -47,7 +47,7 @@ return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
 
     -- -- Vim git
-    use 'lewis6991/gitsigns.nvim'
+    -- use 'lewis6991/gitsigns.nvim'
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
     use { 'kdheepak/lazygit.nvim' }
 
@@ -66,9 +66,26 @@ return require('packer').startup(function()
 
     -- -- Colorschemes and themes
     use 'sainnhe/everforest'
-    -- use 'joshdick/onedark.vim'
-    -- use 'rose-pine/neovim'
+    use 'rose-pine/neovim'
+    use 'joshdick/onedark.vim'
     -- use 'lifepillar/vim-gruvbox8'
+    --
+    --
+
+    use({
+      "folke/noice.nvim",
+      config = function()
+        require("noice").setup({
+        })
+      end,
+      requires = {
+        "MunifTanjim/nui.nvim",
+        "rcarriga/nvim-notify",
+        }
+    })
+
+
+
 
     -- use 'glepnir/dashboard-nvim'
     -- use 'jose-elias-alvarez/null-ls.nvim'
