@@ -69,22 +69,9 @@ return require('packer').startup(function()
     use 'rose-pine/neovim'
     use 'joshdick/onedark.vim'
     -- use 'lifepillar/vim-gruvbox8'
-    --
-    --
-
-    use({
-      "folke/noice.nvim",
-      config = function()
-        require("noice").setup({
-        })
-      end,
-      requires = {
-        "MunifTanjim/nui.nvim",
-        "rcarriga/nvim-notify",
-        }
-    })
 
 
+    use 'j-hui/fidget.nvim'
 
 
     -- use 'glepnir/dashboard-nvim'
