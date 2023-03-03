@@ -6,6 +6,9 @@ local var = vim.g
 ------ Utils
 var.hidden_all = 0
 var.mapleader = ' '
+var.loaded_netrw = 1
+var.loaded_netrwPlugin = 1
+
 
 ------ Prettier
 -- var['prettier#autoformat'] = 1
